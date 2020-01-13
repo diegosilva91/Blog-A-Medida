@@ -44,7 +44,7 @@ class consultModels extends Models{
                 // echo "user_login=".$row['user_login']."getby id<br>";
                 $item->user_pass = $row['user_pass'];
             }
-            session_start();
+
             $_SESSION['user_id'] = $item->ID;
             
             var_dump($_SESSION['user_id']);
