@@ -24,7 +24,8 @@
       <br> IDPost <?=$posts->ID_post?><br>
         <?=$posts->post_author?><br>
         <?=$posts->post_date?><br>
-        
+        <?=$posts->post_title?><br>
+        <?=$posts->post_content?><br>
         
     
         <?php require 'views/controlButtons.php'?>

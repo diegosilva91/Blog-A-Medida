@@ -58,7 +58,8 @@ class blogModels extends Models{
                 $item->post_author    = $row['post_author'];
                 //   echo $row['Db'];
                 $item->post_date  = $row['post_date'];
-                
+                $item->post_content  = $row['post_content'];
+                $item->post_title  = $row['post_title'];
                  $item->comments=$this->getComentsByID($row['ID_posts']);    
                 // var_dump($item->comments);
                 array_push($items, $item);
@@ -72,3 +73,4 @@ class blogModels extends Models{
     }
 }
 ?>
+
