@@ -12,7 +12,7 @@ class Blog extends MainController{
         //    echo $_SERVER['REQUEST_URI'];
     }
     function render($param=null){
-        // var_dump($param);
+        // echo "$param"; var_dump($param);
         $this->view->posts=$this->models->get();
         // var_dump($this->models);
         // $this->loadModel('comment');
