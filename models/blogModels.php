@@ -53,8 +53,8 @@ class blogModels extends Models{
         
         while($row = $query->fetch()){
                 $item = new Posts();
-                $item->ID_post = $row['ID'];    
-                //  echo $row['ID'];
+                $item->ID_post = $row['ID_posts'];    
+                echo $row['ID_posts'];
                 $item->post_author    = $row['post_author'];
                 //   echo $row['Db'];
                 $item->post_date  = $row['post_date'];

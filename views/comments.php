@@ -1,6 +1,6 @@
-<form action="<?php echo constant('URL');?>consult/login" method="post">
+<form action="<?php echo constant('URL');?>comments/new?id=<?=$posts->ID_post?>" method="post">
 
-        <input type="text" name="title" id="title" required="required" />
+        <input type="text" name="comment_content" id="comment_content" required="required" />
 
-    <p><input type="submit" name="add_submit" value="Add" /></p>
+    <p><input type="submit" name="add_comment" value="Add" /></p>
 </form>

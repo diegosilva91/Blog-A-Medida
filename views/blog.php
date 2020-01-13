@@ -21,7 +21,7 @@
     //   var_dump($this->posts);
     //  var_dump($this->comments);
     foreach ($this->posts as $posts):?>
-        <?=$posts->ID_post?><br>
+      <br> IDPost <?=$posts->ID_post?><br>
         <?=$posts->post_author?><br>
         <?=$posts->post_date?><br>
         

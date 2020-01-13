@@ -32,20 +32,22 @@ class Routes{
             // var_dump ($nOptionalParam);
            $nparam = sizeof($url);
            
-        //    echo($nparam); # of/.../.../...
+            // echo($nparam); # of/.../.../...
            if($nparam > 1){
                if($nparam > 2){
                     $param = [];
                     for($i = 2; $i<$nparam; $i++){
                         array_push($param, $url[$i]);
-                        // echo $url[$i];
+                        //  echo $url[$i];
                     }
                     
                     $Route->{$url[1]}($param);
-                    
+                    // echo("this");      
                 }else{
-                    // echo $url[1];                
-                    $Route->{$url[1]}();
+                    //  echo $url[1];                
+                    if ($nOptionalParam>1) $Route->{$url[1]}($url2[1]);
+                    else $Route->{$url[1]}();
+                    
                 }
             }else{
                 if ($nOptionalParam>1){
