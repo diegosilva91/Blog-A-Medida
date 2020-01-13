@@ -71,6 +71,37 @@ class blogModels extends Models{
             // return $e;
         }
     }
+    public function SearchInPosts($word){
+        $items=[];                                                
+        $query = $this->db->connect()->prepare("SELECT * FROM 
+        cb_posts WHERE post_content LIKE '%{$word}%';");
+        
+        /*var_dump($this->db->connect()->query("SELECT * FROM 
+        cb_posts WHERE post_content LIKE '%word= :word%';"));*/
+        try{
+            // $query->execute([':word' => $word]);
+            $query->bindParam(1,$word);
+            $query->execute();
+            // var_dump($query);
+            while($row = $query->fetch()){
+                $item = new Posts();
+                $item->ID_post = $row['ID_posts'];    
+                // echo $row['ID_posts'];
+                $item->post_author    = $row['post_author'];
+                //   echo $row['Db'];
+                $item->post_date  = $row['post_date'];
+                $item->post_content  = $row['post_content'];
+                $item->post_title  = $row['post_title'];
+                // echo $row['comment_author_url'];
+                array_push($items, $item);
+            }
+            // return $query->fetch();
+            return $items;
+        }catch(PDOException $e){
+            return [];
+            // return $e;
+        }
+    }
 }
 ?>
 

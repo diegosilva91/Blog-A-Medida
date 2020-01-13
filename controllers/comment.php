@@ -25,7 +25,7 @@ class Comment extends MainController{
             // $new->comment_IP=;
             // $new->comment_date=;
             // $new->comment_date_gmt=;
-            $new->comment_content=$_POST['comment_content'];;
+            $new->comment_content=$_POST['comment_content'];
             // $this->loadModel('comment');
             // var_dump($this);
             $this->models->insertComments($new);
