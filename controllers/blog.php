@@ -38,7 +38,10 @@ class Blog extends MainController{
         // echo "render view";
 
     }
-    function user($param=null){
+    function searchContent($param=null){
+
+    }
+    /*function user($param=null){
         $userlogin = $param[0];
         if (isset( $_SESSION['user_id'] ) ) {
             // echo "sesion ok";
@@ -49,6 +52,6 @@ class Blog extends MainController{
             $this->view->session=0;
             $this->view->render('blog');
         }
-    }
+    }*/
 }
 ?>

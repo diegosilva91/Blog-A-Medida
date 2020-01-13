@@ -5,7 +5,7 @@ class LoginModels extends Models{
         parent::__construct();
         // echo "<br>consult model construct<br>";
     }
-public function get(){
+/*public function get(){
         $items = [];
         try{
             $query = $this->db->connect()->query("SELECT*FROM cb_users");
@@ -53,7 +53,7 @@ public function get(){
             return null;
             echo "$e";
         }
-    }
+    }*/
 }
 
 ?>

@@ -80,10 +80,7 @@ class consultModels extends Models{
             
             // var_dump($_SESSION['user_id']);
             // echo "$item->ID<br>";
-           return $item;
-     
-
-            
+           return $item;       
         }catch(PDOException $e){
             return null;
             echo "$e";
