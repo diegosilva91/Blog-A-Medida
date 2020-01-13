@@ -5,7 +5,7 @@ if (isset( $_SESSION['user_id'] ) ):
 <?php 
 else:
 ?>
-<form action="<?php echo constant('URL');?>comments/new?id=idComment=<?=$posts->ID_post?>" method="post">
+<form action="<?php echo constant('URL');?>comment/new?id=0&idComment=<?=$posts->ID_post?>" method="post">
 <?php endif;?> 
         <input type="text" name="comment_content" id="comment_content" required="required" />
 
