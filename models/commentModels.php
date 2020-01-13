@@ -17,10 +17,9 @@ class commentModels extends Models{
             $query->execute(['comment_post_ID' => $comments->comment_post_ID, 'user_id' => $comments->user_id, 'comment_content' => $comments->comment_content]);
             return true;
         }catch(PDOException $e){
-            echo $e->getMessage();
-            //echo "Ya existe esa matrícula";
-            return $e;
-            // return false;
+            // echo $e->getMessage();
+            // return $e;
+            return false;
         }
     }
 }

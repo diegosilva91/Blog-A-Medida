@@ -30,9 +30,7 @@ class Comment extends MainController{
             // var_dump($this);
             $this->models->insertComments($new);
         }
-        
-
-        // header("location:".constant('URL').'blog?id='.$_SESSION['user_id']);
+         header("location:".constant('URL').'blog?id='.$_SESSION['user_id']);
     }
 }
 ?>

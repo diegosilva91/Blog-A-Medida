@@ -59,7 +59,7 @@ class blogModels extends Models{
                 //   echo $row['Db'];
                 $item->post_date  = $row['post_date'];
                 
-                 $item->comments=$this->getComentsByID($row['ID']);    
+                 $item->comments=$this->getComentsByID($row['ID_posts']);    
                 // var_dump($item->comments);
                 array_push($items, $item);
             }
