@@ -7,6 +7,7 @@ class Posts{
     public $post_title;
     public $post_excerpt;
     public $comments;
+    public $categories;
 
 
 }
