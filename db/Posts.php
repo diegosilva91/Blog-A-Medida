@@ -5,6 +5,7 @@ class Posts{
     public $post_date;
     public $post_content;
     public $post_title;
+    public $post_excerpt;
     public $comments;
 
 
