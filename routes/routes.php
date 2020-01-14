@@ -66,6 +66,7 @@ class Routes{
                             $Route->{$url[1]}($paramOptional);
                         }
                         else{
+                            $url2[1]=str_replace("id=","",$url2[1]);        
                             $Route->{$url[1]}($url2[1]);
                         }
 
