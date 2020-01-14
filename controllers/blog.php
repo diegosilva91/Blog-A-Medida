@@ -77,7 +77,7 @@ class Blog extends MainController{
         $param[0]=str_replace("id=","",$param[0]);
         $this->view->render('InforPost');
         // var_dump($param);
-        var_dump(!empty($_POST['submitPost']));
+        // var_dump(!empty($_POST['submitPost']));
         if( isset($_POST['titlePostInput']) && isset($_POST['ContentPostInput']) 
         && isset($_POST['TagPostInput']) && isset ( $_POST['KeywordPostInput'])){
             // echo"okd<br>";
@@ -91,32 +91,20 @@ class Blog extends MainController{
             $excerpt=explode(".",$new->post_content);
             $new->post_excerpt=$excerpt[0];
             $new->post_title=$_POST['titlePostInput'];
-             var_dump($new);
-            // if($this->models->AddPost($new)){
-                // echo "si";
-            // }else{
-                // echo "no";      
-            // }
-             var_dump($this->models->AddPost($new));
+            $new->categories=$_POST['TagPostInput'];
+            // var_dump($new);
+            if($this->models->AddPost($new)){
+                echo "si";
+            }else{
+                echo "no";      
+            }
+            // var_dump($this->models->AddPost($new));
+            //var_dump($this->models->AddPost($new));
         }
         else{
-            echo "no";  
-        }
-        
-        
-        
+            // echo "no";  
+        }        
     }
-    /*function user($param=null){
-        $userlogin = $param[0];
-        if (isset( $_SESSION['user_id'] ) ) {
-            // echo "sesion ok";
-            $this->view->session=$_SESSION['user_id'];
-            $this->view->render('blog');
-        } else {    
-        // Redirect them to the login page
-            $this->view->session=0;
-            $this->view->render('blog');
-        }
-    }*/
+
 }
 ?>
