@@ -28,8 +28,12 @@
         </div>
         <div class="row">
         <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1">Tag and keyword</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="sport...">
+            <label for="exampleFormControlInput1">Tag</label>
+            <input type="text" class="form-control" name="TagPostInput" id="exampleFormControlInput1" placeholder="sport...">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleFormControlInput2">Keyword</label>
+            <input type="text" class="form-control" name="KeywordPostInput" id="exampleFormControlInput2" placeholder="keyword...">
           </div>
         </div>
         <div class="form-group row ">

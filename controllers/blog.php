@@ -70,14 +70,19 @@ class Blog extends MainController{
     }
     function new($param=null){
         $this->view->render('createpost');
-        // var_dump(($_POST['submitPost']));
-        if( isset($_POST['titlePostInput'])
-            && isset($_POST['ContentPostInput'])){
+        var_dump(!empty($_POST['submitPost']));
+        if( isset($_POST['titlePostInput']) && isset($_POST['ContentPostInput']) 
+        && isset($_POST['TagPostInput']) && isset ( $_POST['KeywordPostInput'])){
+            echo"okd";
+            var_dump(!empty($_POST['submitPost']));
+        }
+        else{
+            echo "no";  
         }
         
         /*$new=new Posts();
-        $new->comment_post_ID=$param[1];
-        $new->user_id=$param[0];
+        $new->comment_post_ID=
+        $new->user_id=
         $this->models->AddPost($new);
         var_dump($this->models->AddPost($new));*/
     }
