@@ -50,7 +50,7 @@
                               </div>
                            </div>
                            <div class="form-group">
-                              <p class="text-center">Don't have account? <a href="register.html" id="signup">Sign up here</a></p>
+                              <p class="text-center">Don't have account? <a href="<?php echo constant('URL');?>consult/register" id="signup">Sign up here</a></p>
                            </div>
                         </form>
 

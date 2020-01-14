@@ -13,6 +13,7 @@
         <li><a href="<?php echo constant('URL'); ?>home">Home</a></li>
             <?php if (isset( $_SESSION['user_id'] ) ):?>
                 <li><a href="<?php echo constant('URL'); ?>blog?id=<?php echo($_SESSION['user_id']);?>">Blog</a></li>
+                <li><a href="<?php echo constant('URL'); ?>admin?id=<?php echo($_SESSION['user_id']);?>">Admin</a></li>
             <?php else:?>
                 
                 <li><a href="<?php echo constant('URL'); ?>blog">Blog</a></li>
