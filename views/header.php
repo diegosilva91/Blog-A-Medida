@@ -16,9 +16,11 @@
             <?php else:?><li><a href="<?php echo constant('URL'); ?>consult/login">Login</a></li>
             <?php endif;?>
             <form action="<?php echo constant('URL');?>blog/searchContent" method="post">
+            <!-- <form action="" method="post"> -->
             <input type="text" name="searchPostByWord" id="searchPostByWord" required="required" />
             <p><input type="submit" name="Input_SearchInPosts" value="Search" /></p>
             </form>  
+            <li><a href="<?php echo constant('URL'); ?>blog/new">New</a></li>
         </ul>
     </div>
 </body>
