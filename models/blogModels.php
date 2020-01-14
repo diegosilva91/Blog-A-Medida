@@ -103,14 +103,24 @@ class blogModels extends Models{
             // return $e;
         }
     }
+    
     public function AddPost($datos){
-        try{
-            
+        try{  
             $query= $this->db->connect()->prepare('INSERT INTO cb_posts (post_author,post_date,post_date_gmt,post_content,post_title,post_excerpt) VALUES(:post_author,:post_date,:post_date_gmt,:post_content,:post_title,:post_excerpt)');
             $query->execute(['post_author' => $datos->post_author,'post_date' => $datos->post_date,'post_date_gmt'=>$datos->post_date,'post_content'=>$datos->post_content,'post_title'=>$datos->post_title,'post_excerpt'=>$datos->post_excerpt]);
             return true;
         }catch(PDOException $e){
-            return $e;
+            return false;
+        }
+    }
+    
+    public function AddCategory($datos){
+        try{  
+            $query= $this->db->connect()->prepare('INSERT INTO cb_categories (post_taxonomy,post_ID) VALUES(:post_taxonomy,:post_ID)');
+            $query->execute(['post_taxonomy' => $datos->post_author,'post_date' => $datos->post_date,'post_date_gmt'=>$datos->post_date,'post_content'=>$datos->post_content,'post_title'=>$datos->post_title,'post_excerpt'=>$datos->post_excerpt]);
+            return true;
+        }catch(PDOException $e){
+            return false;
         }
     }
 }
