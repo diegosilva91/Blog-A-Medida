@@ -69,11 +69,17 @@ class Blog extends MainController{
         // echo "render view";
     }
     function new($param=null){
-        $new=new Posts();
+        $this->view->render('createpost');
+        // var_dump(($_POST['submitPost']));
+        if( isset($_POST['titlePostInput'])
+            && isset($_POST['ContentPostInput'])){
+        }
+        
+        /*$new=new Posts();
         $new->comment_post_ID=$param[1];
         $new->user_id=$param[0];
         $this->models->AddPost($new);
-        var_dump($this->models->AddPost($new));
+        var_dump($this->models->AddPost($new));*/
     }
     /*function user($param=null){
         $userlogin = $param[0];

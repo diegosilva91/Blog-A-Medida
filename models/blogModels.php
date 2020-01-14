@@ -106,7 +106,7 @@ class blogModels extends Models{
     public function AddPost($datos){
         try{
             $query= $this->db->connect()->prepare('INSERT INTO cb_posts (post_author, post_date, post_content) VALUES(:post_author, :post_date, :apost_content)');
-            $query->execute(['post_author' => $datos['post_author'], 'post_date' => $datos['post_date'], 'post_content' => $datos['post_content']]);
+            $query->execute(['post_author' => $datos->post_author, 'post_date' => $datos->post_date, 'post_content' => $datos->post_content]);
             return true;
         }catch(PDOException $e){
             return false;

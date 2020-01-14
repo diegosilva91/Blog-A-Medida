@@ -28,6 +28,7 @@ class Consult extends MainController{
             //  print_r($param[0]);
             // echo $_SESSION['user_id'];
             $this->view->render('login');
+            // !empty($_POST['add_comment'])more controls
             if(isset($_POST['email']) && isset($_POST['password'])){
                 // echo $_REQUEST['email'];
                 // echo "<br> ".$_POST['email'];
