@@ -29,13 +29,13 @@ class consultModels extends Models{
             echo "error";
         }
     }
-    public function getPassby($id){
+    public function getPassby($email){
         $item = new DB();
 
-        $query = $this->db->connect()->prepare("SELECT * FROM cb_users WHERE user_login = :user_login LIMIT 1");
+        $query = $this->db->connect()->prepare("SELECT * FROM cb_users WHERE user_email = :user_email LIMIT 1");
         // var_dump($query);
         try{
-            $query->execute(['user_login' => $id]);
+            $query->execute(['user_email' => $email]);
             // echo "query -> userlogin =$id <br>";
             while($row = $query->fetch()){
                 $item->ID = $row['ID'];
@@ -43,6 +43,8 @@ class consultModels extends Models{
                 $item->user_login = $row['user_login'];
                 // echo "user_login=".$row['user_login']."getby id<br>";
                 $item->user_pass = $row['user_pass'];
+
+                $item->user_email = $row['user_email'];
             }
 
             $_SESSION['user_id'] = $item->ID;
@@ -50,7 +52,7 @@ class consultModels extends Models{
             var_dump($_SESSION['user_id']);
             echo "$item->ID<br>";
             // return $item;
-            return $item->user_pass;
+            return $item->user_email;
 
             
         }catch(PDOException $e){
