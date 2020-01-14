@@ -13,6 +13,7 @@ class Blog extends MainController{
     }
     function render($param=null){
         // echo "$param"; var_dump($param);
+        
         $this->view->posts=$this->models->get();
         // var_dump($this->models);
         // $this->loadModel('comment');
@@ -43,8 +44,32 @@ class Blog extends MainController{
             // echo($_POST['searchPostByWord']);
             $search=$this->models->SearchInPosts($_POST['searchPostByWord']);
             // var_dump($search);
+            
+
+                $this->view->posts=$search;
+
         }
+        $this->loadModel('consult');
+        $params=$this->models->getPassByID($param);
+        $this->view->params=$params;
+        // $this->view->render('comments');
         
+
+        // var_dump(!empty($_SESSION['user_id']));
+        if (isset( $_SESSION['user_id'] ) ) {
+            // echo "sesion ok";
+            $this->view->session=$_SESSION['user_id'];
+            $this->view->render('blog');
+        } else {    
+        // Redirect them to the login page
+            $this->view->session=-1;
+            $this->view->render('blog');
+        }
+
+        // echo "render view";
+    }
+    function new($param=null){
+
     }
     /*function user($param=null){
         $userlogin = $param[0];

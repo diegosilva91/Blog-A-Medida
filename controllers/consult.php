@@ -25,7 +25,7 @@ class Consult extends MainController{
             header("location:".constant('URL').'blog?id='.$_SESSION['user_id']);
         }
         else{
-             print_r($param[0]);
+            //  print_r($param[0]);
             // echo $_SESSION['user_id'];
             $this->view->render('login');
             if(isset($_POST['email']) && isset($_POST['password'])){

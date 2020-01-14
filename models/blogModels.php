@@ -92,6 +92,7 @@ class blogModels extends Models{
                 $item->post_date  = $row['post_date'];
                 $item->post_content  = $row['post_content'];
                 $item->post_title  = $row['post_title'];
+                $item->comments=$this->getComentsByID($row['ID_posts']);    
                 // echo $row['comment_author_url'];
                 array_push($items, $item);
             }
