@@ -12,21 +12,15 @@
   </head>
   <body>
   
-            <?php if (isset( $_SESSION['user_id'] ) ):?>
-                <li><a href="<?php echo constant('URL'); ?>admin?id=<?php echo($_SESSION['user_id']);?>">Admin</a></li>
-            <?php endif;?>
-            <form action="<?php echo constant('URL');?>blog/searchContent" method="post">
-            <!-- <form action="" method="post"> -->
-            <input type="text" name="searchPostByWord" id="searchPostByWord" required="required" />
-            <p><input type="submit" name="Input_SearchInPosts" value="Search" /></p>
-            </form>  
-            <li><a href="<?php echo constant('URL'); ?>blog/new?id=<?php echo($_SESSION['user_id']);?>">New</a></li>
-        </ul>
-    </div>
+        
+
     <!--Navbar -->
     <nav class="navbar navbar-light bg-light ">
         <!-- <form class="form-inline my-2 my-lg-0"> -->
             <?php if (isset( $_SESSION['user_id'] ) ):?>
+              <!-- only Admin -->
+                <!-- <li><a href="<?php echo constant('URL'); ?>admin?id=<?php echo($_SESSION['user_id']);?>">Admin</a></li> -->
+                <button class="btn btn-outline-success my-4 my-sm-0" type="submit" onclick="window.location='<?php echo constant('URL'); ?>admin?id=<?php echo($_SESSION['user_id']);?>'">Control Panel</button>
                 <!-- <li><a href="<?php echo constant('URL'); ?>consult/login">Login</a></li> -->
             <?php else:?>
                 <button id="LoginButton" class="btn btn-outline-primary my-4 my-sm-0" type="submit" style="margin-right: 5px;">Login</button>
@@ -35,7 +29,10 @@
             <?php endif;?>
           <!-- </form> -->
         <span class="navbar-text ml-auto">
-          You are logeed as guest
+        <?php if (isset( $_SESSION['user_id'] ) ):?>You are logeed as 
+          <?php echo $this->params->user_login;?>
+          <li><a href="<?php echo constant('URL'); ?>consult/logout">Logout</a></li> 
+          <?php endif;?>
         </span>
       </nav>
   <!--/.Navbar -->
@@ -54,14 +51,18 @@
               <a class="nav-link" href="<?php echo constant('URL'); ?>home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">posts</a>
+              <a class="nav-link" href="<?php echo constant('URL'); ?>blog/new?id=<?php echo($_SESSION['user_id']);?>">New Post</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">others...</a>
             </li>
           </ul>
-          
-          <form class="form-inline my-2 my-lg-0">
+          <!-- <form action="<?php echo constant('URL');?>blog/searchContent" method="post"> -->
+            <!-- <form action="" method="post"> -->
+            
+            <!-- <p><input type="submit" name="Input_SearchInPosts" value="Search" /></p> -->
+            <!-- </form>   -->
+          <form class="form-inline my-2 my-lg-0" action="<?php echo constant('URL');?>blog/searchContent" method="post">
             <div class="btn-group">
                 <button type="button" class="btn btn-outline-info dropdown-toggle" style="margin-right: 5px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Category
@@ -74,8 +75,9 @@
                   <a class="dropdown-item" href="#">Separated link</a>
                 </div>
               </div>
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input name="searchPostByWord" id="searchPostByWord" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+           <!-- <input type="text" name="searchPostByWord" id="searchPostByWord" required="required" /> -->
+            <button name="Input_SearchInPosts" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
       </nav>

@@ -45,7 +45,8 @@ class Blog extends MainController{
 
     }
     function searchContent($param=null){
-        if (!empty($_POST['Input_SearchInPosts'])){
+        
+        if (!empty($_POST['searchPostByWord'])){
             // echo($_POST['searchPostByWord']);
             $search=$this->models->SearchInPosts($_POST['searchPostByWord']);
             // var_dump($search);

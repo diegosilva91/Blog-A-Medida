@@ -12,8 +12,7 @@
     <h1 class="center">BLOG welcome <?php echo $this->params->user_login; ?></h1>
     <!-- <a href="<?php echo constant('URL');?>consult/consult">View Dates</a> -->
     <!-- <?php echo $_SESSION['user_id'];?> -->
-    <?php if (isset( $_SESSION['user_id'] ) ):?>You are connected as <?php echo $this->params->user_login; ?>
-    <li><a href="<?php echo constant('URL'); ?>consult/logout">Logout</a></li> 
+    <!-- <?php if (isset( $_SESSION['user_id'] ) ):?>You are connected as <?php echo $this->params->user_login; ?> -->
     <?php else:?>
     <?php endif; 
     // echo($this->session); 
