@@ -1,7 +1,7 @@
 
 
 
-    <p><input type="submit" name="add_comment" value="Add Comment" /></p>
+    
 
 
           <!-- Comment Form -->
@@ -35,7 +35,7 @@ else:
             
             <div class="form-group row ">
                 <div class="col-sm-4">
-                  <button type="submit" class="btn btn-outline-warning">Post your Comment</button>
+                  <input type="submit" name="add_comment" class="btn btn-outline-warning" value="Post your Comment">
                 </div>
             </div>
           </form>
