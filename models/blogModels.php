@@ -11,6 +11,10 @@ class blogModels extends Models{
             @session_start();
         //  echo "<br>Blog model construct<br>";
     }
+    /**
+     * Return Comments
+     * params IdComments
+     */
     public function getComentsByID($idComments){            
         $items=[];                                                
         $query = $this->db->connect()->prepare("SELECT *
