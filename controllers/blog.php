@@ -73,6 +73,9 @@ class Blog extends MainController{
 
         // echo "render view";
     }
+    function searchPost($param=null){
+        var_dump($param);
+    }
     function new($param=null){
         $param[0]=str_replace("id=","",$param[0]);
         $this->view->render('InforPost');

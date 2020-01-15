@@ -71,6 +71,35 @@ class blogModels extends Models{
             // return $e;
         }
     }
+    public function getPostsById($idPosts){
+        $items = [];
+        try{
+            // var_dump($this->db->connect()->query("SELECT * FROM db_blog.cb_posts;"));
+            $query = $this->db->connect()->query("SELECT *
+            FROM cb_posts, cb_users
+            where cb_users.ID=cb_posts.post_author;");
+        //  var_dump($query->fetch());
+        
+        while($row = $query->fetch()){
+                $item = new Posts();
+                $item->ID_post = $row['ID_posts'];    
+                // echo $row['ID_posts'];
+                $item->post_author    = $row['post_author'];
+                //   echo $row['Db'];
+                $item->post_date  = $row['post_date'];
+                $item->post_content  = $row['post_content'];
+                $item->post_title  = $row['post_title'];
+                 $item->comments=$this->getComentsByID($row['ID_posts']);    
+                // var_dump($item->comments);
+                array_push($items, $item);
+            }
+            // return $query->fetch();
+            return $items;
+        }catch(PDOException $e){
+            return [];
+            // return $e;
+        }
+    }
     public function SearchInPosts($word){
         $items=[];                                                
         $query = $this->db->connect()->prepare("SELECT * FROM 
