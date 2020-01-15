@@ -9,5 +9,5 @@ else:
 <?php endif;?> 
         <input type="text" name="comment_content" id="comment_content" required="required" />
 
-    <p><input type="submit" name="add_comment" value="Add" /></p>
+    <p><input type="submit" name="add_comment" value="Add Comment" /></p>
 </form>

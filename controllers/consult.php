@@ -59,7 +59,8 @@ class Consult extends MainController{
         header('Location: ' . constant('URL').'home');
         exit;
     }
-    function consult(){
+    function register(){
+        $this->view->render('register');
         // $db=$this->models->get();
         // var_dump($db);
     }

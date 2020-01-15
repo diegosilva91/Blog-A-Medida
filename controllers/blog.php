@@ -8,7 +8,8 @@ class Blog extends MainController{
         // Enable PHP Session
         if (empty($_SESSION))
             @session_start();
-        //echo "<p>New Consult Controller</p>";
+            // var_dump($_SESSION);
+        // echo "<p>New Consult Controller</p>";
         //    echo $_SERVER['REQUEST_URI'];
     }
     function render($param=null){
@@ -28,8 +29,12 @@ class Blog extends MainController{
         // var_dump(!empty($_SESSION['user_id']));
         if (isset( $_SESSION['user_id'] ) ) {
             // echo "sesion ok";
-            $this->view->session=$_SESSION['user_id'];
+            // echo $_SESSION['user_id'];
+            // var_dump($_SESSION['user_id']);
             $this->view->render('blog');
+            $this->view->session=$_SESSION['user_id'];
+            // header("location:".constant('URL').'blog?id='.$_SESSION['user_id']);
+            
         } else {    
         // Redirect them to the login page
             $this->view->session=-1;
@@ -68,35 +73,41 @@ class Blog extends MainController{
 
         // echo "render view";
     }
+    function searchPost($param=null){
+        var_dump($param);
+    }
     function new($param=null){
-        $this->view->render('createpost');
-        var_dump(!empty($_POST['submitPost']));
+        $param[0]=str_replace("id=","",$param[0]);
+        $this->view->render('InforPost');
+        // var_dump($param);
+        // var_dump(!empty($_POST['submitPost']));
         if( isset($_POST['titlePostInput']) && isset($_POST['ContentPostInput']) 
         && isset($_POST['TagPostInput']) && isset ( $_POST['KeywordPostInput'])){
-            echo"okd";
-            var_dump(!empty($_POST['submitPost']));
+            // echo"okd<br>";
+            // var_dump(!empty($_POST['submitPost']));
+            $new=new Posts();
+            $new->post_author=(int)$param[0];
+            $now = new DateTime('NOW');
+            // var_dump($now);
+            $new->post_date=date_format($now,'Y-m-d H:i:s');
+            $new->post_content=$_POST['ContentPostInput'];
+            $excerpt=explode(".",$new->post_content);
+            $new->post_excerpt=$excerpt[0];
+            $new->post_title=$_POST['titlePostInput'];
+            $new->categories=$_POST['TagPostInput'];
+            // var_dump($new);
+            if($this->models->AddPost($new)){
+                echo "si";
+            }else{
+                echo "no";      
+            }
+            // var_dump($this->models->AddPost($new));
+            //var_dump($this->models->AddPost($new));
         }
         else{
-            echo "no";  
-        }
-        
-        /*$new=new Posts();
-        $new->comment_post_ID=
-        $new->user_id=
-        $this->models->AddPost($new);
-        var_dump($this->models->AddPost($new));*/
+            // echo "no";  
+        }        
     }
-    /*function user($param=null){
-        $userlogin = $param[0];
-        if (isset( $_SESSION['user_id'] ) ) {
-            // echo "sesion ok";
-            $this->view->session=$_SESSION['user_id'];
-            $this->view->render('blog');
-        } else {    
-        // Redirect them to the login page
-            $this->view->session=0;
-            $this->view->render('blog');
-        }
-    }*/
+
 }
 ?>
