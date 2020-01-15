@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--Navbar -->
+    <nav class="navbar navbar-light bg-light ">
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-primary my-4 my-sm-0" type="submit" style="margin-right: 5px;">Login</button>
+            <button class="btn btn-outline-success my-4 my-sm-0" type="submit">Signup</button>
+          </form>
+        <span class="navbar-text ml-auto">
+          You are logeed as guest
+        </span>
+      </nav>
+  <!--/.Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">BLOG</a>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">others...</a>
+            </li>
+          </ul>
+          
+          <form class="form-inline my-2 my-lg-0">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-info dropdown-toggle" style="margin-right: 5px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Category
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </div>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+<!-- End of Navbar -->
+    
+    <div class="container" style="margin-top: 10px;">
+      <div class="row">
+        <div class="col-sm-10">
+        <div class="card">
+          <div class="card-header text-right">
+            <div class="row">
+              <div class="col-2">
+                Category
+              </div>
+              <div class="col-6">
+                
+              </div>
+              <div class="col-2">
+                Date Created
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Title of Post</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo facere numquam, ipsam ipsa minima provident voluptates ipsum? Dolore, assumenda alias cumque, doloribus minima iure natus eveniet ex in, voluptatibus provident?</p>
+            <blockquote class="blockquote mb-0">
+              
+              <footer class="blockquote-footer"><cite title="Source Title">Post writer goes here </cite></footer>
+            </blockquote>
+            <a href="#" class="btn btn-outline-primary" style="margin-top: 10px;">Edit</a>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="card card-comments mb-3 wow fadeIn"> 
+                <div class="card-header font-weight-bold">3 comments</div>
+                <div class="card-body">
+                    <div class="media d-block d-md-flex mt-4">
+                        <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                            <h5 class="mt-0 font-weight-bold">Mani
+                                <a href="" class="pull-right">
+                                    <i class="fa fa-reply"></i>
+                                </a>
+                            </h5>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                
+                            
+                          </div>
+                      </div>
+                </div>
+                <div class="card-body">
+                  <div class="media d-block d-md-flex mt-4">
+                      <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                          <h5 class="mt-0 font-weight-bold">Diego
+                              <a href="" class="pull-right">
+                                  <i class="fa fa-reply"></i>
+                              </a>
+                          </h5>
+                          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                          cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                              
+                          
+                        </div>
+                    </div>
+              </div>
+              </div>
+            </div>
+          </div>
+            <!-- End of Comment Section -->
+                
+          <!-- Comment Form -->
+          <form style="background-color: whitesmoke; padding: 10px 10px 10px 10px; margin-top: 20px;">
+            <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Your Comment Title</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="title...">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlInput1">Your name</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name...">
+            </div>
+            </div>
+    
+            <div class="row">
+            <div class="form-group col-md-6">
+              <label for="exampleFormControlTextarea1">Example textarea</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            </div>
+            </div>
+            
+            <div class="form-group row ">
+                <div class="col-sm-4">
+                  <button type="submit" class="btn btn-outline-warning">Post your Comment</button>
+                </div>
+            </div>
+          </form>
+          <!-- End of Comment Form -->
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
