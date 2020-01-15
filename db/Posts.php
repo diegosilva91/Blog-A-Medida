@@ -8,6 +8,7 @@ class Posts{
     public $post_excerpt;
     public $comments;
     public $categories;
+    public $nicename_post;
 
 
 }

@@ -27,12 +27,14 @@ class blogModels extends Models{
                 // echo $row['comment_ID'];
                 $item->user_id  = $row['user_id'];
                 // echo $row['user_id'];
+                $item->nicename_comment = $row['user_nicename'];
                 $item->comment_post_ID    = $row['comment_post_ID'];
                 // echo $row['comment_post_ID'];
                 $item->comment_author_email  = $row['comment_author_email'];
                 // echo $row['comment_author_email'];
-                $item->comment_author_url  = $row['comment_author_url'];
+                $item->comment_content  = $row['comment_content'];
                 // echo $row['comment_author_url'];
+
                 array_push($items, $item);
             }
             // return $query->fetch();
@@ -60,6 +62,7 @@ class blogModels extends Models{
                 $item->post_date  = $row['post_date'];
                 $item->post_content  = $row['post_content'];
                 $item->post_title  = $row['post_title'];
+                $item->nicename_post=$row['user_nicename'];
                  $item->comments=$this->getComentsByID($row['ID_posts']);    
                 // var_dump($item->comments);
                 array_push($items, $item);
@@ -73,14 +76,12 @@ class blogModels extends Models{
     }
     public function getPostsById($idPosts){
         $items = [];
+        $query = $this->db->connect()->prepare("SELECT *
+        FROM cb_posts, cb_users 
+        where (cb_users.ID=cb_posts.post_author) and (ID_posts = :ID_posts)");
         try{
-            // var_dump($this->db->connect()->query("SELECT * FROM db_blog.cb_posts;"));
-            $query = $this->db->connect()->query("SELECT *
-            FROM cb_posts, cb_users
-            where cb_users.ID=cb_posts.post_author;");
-        //  var_dump($query->fetch());
-        
-        while($row = $query->fetch()){
+            $query->execute(['ID_posts' => $idPosts]);
+            while($row = $query->fetch()){
                 $item = new Posts();
                 $item->ID_post = $row['ID_posts'];    
                 // echo $row['ID_posts'];
@@ -89,6 +90,7 @@ class blogModels extends Models{
                 $item->post_date  = $row['post_date'];
                 $item->post_content  = $row['post_content'];
                 $item->post_title  = $row['post_title'];
+                $item->nicename_post=$row['user_nicename'];
                  $item->comments=$this->getComentsByID($row['ID_posts']);    
                 // var_dump($item->comments);
                 array_push($items, $item);

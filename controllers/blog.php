@@ -50,7 +50,6 @@ class Blog extends MainController{
             $search=$this->models->SearchInPosts($_POST['searchPostByWord']);
             // var_dump($search);
             
-
                 $this->view->posts=$search;
 
         }
@@ -74,7 +73,15 @@ class Blog extends MainController{
         // echo "render view";
     }
     function searchPost($param=null){
-        var_dump($param);
+        //  var_dump($param[0]);
+        $idSearch=$param[0];
+        // var_dump($idSearch);
+        $this->view->posts=$this->models->getPostsById($idSearch);
+        var_dump($this->models->getPostsById($idSearch));
+        
+        
+        
+        // echo "render view";
     }
     function new($param=null){
         $param[0]=str_replace("id=","",$param[0]);

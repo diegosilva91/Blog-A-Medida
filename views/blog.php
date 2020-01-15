@@ -18,27 +18,8 @@
     <?php endif; 
     // echo($this->session); 
     // var_dump($this->params);
-    //   var_dump($this->posts);
-    //  var_dump($this->comments);
-    foreach ($this->posts as $posts):?>
-      <br> IDPost <?=$posts->ID_post?><br>
-        <?=$posts->post_author?><br>
-        <?=$posts->post_date?><br>
-        <?=$posts->post_title?><br>
-        <?=$posts->post_content?><br>
-        
-    
-        <?php require 'views/controlButtons.php'?>
-        <?php require 'views/comments.php'?>
-         <?php foreach ($posts->comments as $comments):?><br>
-            <?=$comments->comment_ID?>
-            <?=$comments->user_id?>
-        <?php  
-        endforeach; 
-    ?>     
-    <?php  endforeach; 
     ?>
-                    
+    <?php require 'views/PostContents.php'; ?>
 </div>
 </body>
 </html>
