@@ -78,7 +78,8 @@ class Blog extends MainController{
         $idSearch=$param[0];
         // var_dump($idSearch);
         $this->view->posts=$this->models->getPostsById($idSearch);
-        var_dump($this->models->getPostsById($idSearch));
+        // var_dump($this->models->getPostsById($idSearch));
+        $this->view->render('InforPost');
         
         
         
